@@ -3,17 +3,13 @@ package se.kth.sda.othello;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.ArrayMap;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Map;
-
 import se.kth.sda.othello.imp.NodeImp;
 import se.kth.sda.othello.imp.OthelloFactoryImp;
-import se.kth.sda.othello.R;
 import se.kth.sda.othello.player.Player;
 
 public class MainActivity extends Activity {
@@ -88,5 +84,13 @@ public class MainActivity extends Activity {
         intent.putExtra(GAME_RESULT, "P1");
         setResult(RESULT_OK, intent);
         super.finish();
+    }
+    // On back button pressed from MainActivity will go to MenuActivity.
+    // By Armin Dizdar.
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getBaseContext(), MenuActivity.class);
+        startActivityForResult(intent, 0);
     }
 }

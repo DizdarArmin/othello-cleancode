@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import se.kth.sda.othello.MainActivity;
-import se.kth.sda.othello.R;
-
 public class MenuActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,4 +26,20 @@ public class MenuActivity extends Activity {
         t.show();
     }
 
+
+
+    //Exit from game method.
+    // By Armin Dizdar
+    public void exitGame(View view){
+        finishAffinity();
+    }
+
+    // On back button pressed from MenuActivity will go to LoginActivity.
+    // By Armin Dizdar.
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+        startActivityForResult(intent, 0);
+    }
 }
