@@ -84,6 +84,7 @@ public class MainActivity extends Activity {
         intent.putExtra(GAME_RESULT, "P1");
         setResult(RESULT_OK, intent);
         super.finish();
+ 		
     }
     // On back button pressed from MainActivity will go to MenuActivity.
     // By Armin Dizdar.
