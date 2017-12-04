@@ -637,6 +637,14 @@ public class OthelloImp implements Othello {
         board.setNode(newNode);
         nodeRes.add(newNode);
 
+        // Swap the nodes
+        // @author petrych
+        List <Node> list = getNodesToSwap(playerId, newNode.getId());
+        for (Node node : list) {
+            node.setPlayerId(playerId);
+        }
+        nodeRes = board.getNodes(); // update the list of nodes on the board with the swapped nodes
+
         swapPlayer();
 
         return nodeRes;
@@ -649,12 +657,11 @@ public class OthelloImp implements Othello {
      * @return the list of nodes where the moves are made
      * @author petrych
      */
-    public List<Node> moveInitialNodes() {
-        List<Node> initialNodes = board.getInitialNodes();
-        for (Node node : initialNodes) {
-            move(currentPlayer.getId(), node.getId());
-        }
-        return initialNodes;
+    public void moveInitialNodes() {
+        board.setNode(new NodeImp("3,3", playerOne.getId()));
+        board.setNode(new NodeImp("4,3", playerTwo.getId()));
+        board.setNode(new NodeImp("4,4", playerOne.getId()));
+        board.setNode(new NodeImp("3,4", playerTwo.getId()));
     }
 
     @Override
