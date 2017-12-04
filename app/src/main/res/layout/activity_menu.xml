@@ -4,14 +4,23 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="200dp"
+    android:gravity="center_horizontal|center"
     android:orientation="vertical"
     tools:context="se.kth.sda.othello.MainActivity">
 
     <Button
+        android:id="@+id/start_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start a Human vs Human game!"
         android:onClick="startHumanGame"
-        />
+        android:text="Start a Human vs Human game!" />
+
+    <Button
+        android:id="@+id/quit_game"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:onClick="exitGame"
+        android:text="Quit" />
 
 </LinearLayout>
