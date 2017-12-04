@@ -22,6 +22,13 @@ public interface Node {
 	public String getOccupantPlayerId();
 
 	/**
+	 * Set the given player for a node
+	 * @author petrych
+	 * @param playerId
+	 */
+	public void setPlayerId(String playerId);
+
+	/**
 	 * The x-coordinate of this node
 	 * 
 	 * @return the x-coordinate

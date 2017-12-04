@@ -123,9 +123,7 @@ public interface Othello {
 	public int getPlayerScore(String playerId);
 
 	/**
-	 +	 * Makes initial moves for both players on 4 central nodes.
-	 +	 *
-	 +	 * @return the list of nodes where both players moved
+	 +	 * Sets initial coins for both players on 4 central nodes.
 	 +	 */
-	public List<Node> moveInitialNodes();
+	public void moveInitialNodes();
 }

@@ -33,6 +33,11 @@ public class NodeImp implements Node {
     }
 
     @Override
+    public void setPlayerId(String playerId) {
+        this.playerId = playerId;
+    }
+
+    @Override
     public int getXCoordinate() {
         return x;
     }

@@ -21,12 +21,6 @@ public class BoardImp implements Board {
                 nodes[i][j] = new NodeImp(i,j);
             }
         }
-
-        // Initialize the four initial central nodes for both players
-        initialNodes.add(new NodeImp(3,3));
-        initialNodes.add(new NodeImp(4,3));
-        initialNodes.add(new NodeImp(4,4));
-        initialNodes.add(new NodeImp(3,4));
     }
 
     @Override
