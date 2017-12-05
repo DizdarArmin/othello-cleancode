@@ -39,7 +39,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/totle_playone"
+                    android:id="@+id/total_playerOne"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3"
@@ -55,7 +55,7 @@
             android:orientation="vertical" android:layout_column="1">
 
             <ImageView
-                android:id="@+id/ture_image"
+                android:id="@+id/turn_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -94,7 +94,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/totle_playtwo"
+                    android:id="@+id/total_playerTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
