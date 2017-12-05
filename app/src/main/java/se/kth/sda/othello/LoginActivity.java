@@ -3,8 +3,6 @@ package se.kth.sda.othello;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
 
 import se.kth.sda.othello.imp.OthelloFactoryImp;
 
@@ -20,21 +18,32 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        begin();
     }
 
-    public void login(View view) {
-        EditText inputLogin = (EditText) findViewById(R.id.edit_login);
-        String login = inputLogin.getText().toString();
-        EditText inputPwd = (EditText) findViewById(R.id.edit_pwd);
-        String pwd = inputPwd.getText().toString();
 
-        Intent intent = new Intent(getBaseContext(), MenuActivity.class);
-        startActivityForResult(intent, 0);
+    // Method for going to second activity which is delayed by 3 seconds.
+    // By Armin Dizdar 05/12/2017
+
+    public void begin() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(3000);
+                    Intent i = new Intent(getApplicationContext(), MenuActivity.class);
+                    startActivity(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed () {
         super.onBackPressed();
 
     }
+
 }

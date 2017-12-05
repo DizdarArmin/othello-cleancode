@@ -1,26 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="200dp"
     android:gravity="center_horizontal|center"
     android:orientation="vertical"
     tools:context="se.kth.sda.othello.MainActivity">
 
-    <Button
-        android:id="@+id/start_game"
+    <LinearLayout
+        android:id="@+id/logo_holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="startHumanGame"
-        android:text="Start a Human vs Human game!" />
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/quit_game"
-        android:layout_width="150dp"
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@mipmap/logo_circle" />
+
+        <TextView
+            android:id="@+id/othello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Othello"
+            android:textAlignment="center"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/cleanCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:freezesText="false"
+            android:text="CleanCode"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_holder"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="exitGame"
-        android:text="Quit" />
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/start_game"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:onClick="startHumanGame"
+            android:text="Start a Human vs Human game!" />
+
+        <Button
+            android:id="@+id/quit_game"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:alpha="0.5"
+            android:onClick="exitGame"
+            android:text="Quit" />
+    </LinearLayout>
 
 </LinearLayout>

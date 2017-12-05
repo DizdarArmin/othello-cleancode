@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="horizontal"
     tools:context="se.kth.sda.othello.MainActivity">
 
-    <EditText
-        android:id="@+id/edit_login"
+
+    <LinearLayout
+        android:id="@+id/logo_holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edit_pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@mipmap/logo_circle"
+            android:visibility="visible" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="login"
-        android:text="Log in" />
+        <TextView
+            android:id="@+id/othello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Othello"
+            android:textAlignment="center"
+            android:textSize="60sp" />
 
+        <TextView
+            android:id="@+id/cleanCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:freezesText="false"
+            android:text="CleanCode"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+    </LinearLayout>
 </LinearLayout>
