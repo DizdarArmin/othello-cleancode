@@ -9,9 +9,14 @@ public class HumanPlayer implements Player {
     private final String id;
     private final String name;
 
+    private int score;
+
     public HumanPlayer(String id, String name) {
         this.id = id;
         this.name = name;
+
+        //the starting score
+        this.score = 2;
     }
 
     @Override
