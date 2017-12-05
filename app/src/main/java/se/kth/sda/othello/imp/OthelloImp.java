@@ -50,7 +50,7 @@ public class OthelloImp implements Othello {
 
 
 
-        if(!nodes[node.getXCoordinate()][node.getYCoordinate()].isMarked()) {
+        if(nodes[node.getXCoordinate()][node.getYCoordinate()].isMarked()) {
             // It is going to be used to collect Nodes to flip
             // for every direction seperatly.
             // Once they are transferd in res, dirRes is cleared
@@ -585,26 +585,56 @@ public class OthelloImp implements Othello {
         return res;
     }
 
+    //start: modified method by Aleksandar 12.01
     @Override
     public boolean hasValidMove(String playerId) {
-        return true;
+        if (playerId.equals(getPlayerInTurn().getId())) {
+            if (getPossibleMoves().size() > 0) {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        else
+            return false;
     }
 
+    //start: modified method by Aleksandar 12.01
     @Override
     public boolean isActive() {
-        return true;
+
+        if (hasValidMove(getPlayerInTurn().getId())) {
+            return true;
+        }
+        else {
+            swapPlayer();
+            if (hasValidMove(getPlayerInTurn().getId())) {
+                swapPlayer();
+                return true;
+            }
+            else
+                return false;
+        }
     }
 
+    //start: modified method by Aleksandar 12.01
     @Override
     public boolean isMoveValid(String playerId, String nodeId) {
 
-        for(Node node:nodeRes){
-            if(node.getId().equals(nodeId)){
-                return false;
+        List<Node> possibleMoves = getPossibleMoves();
+        boolean isValid = false;
+
+        if (hasValidMove(playerId)) {
+            for (Node node : possibleMoves) {
+                if (node.getId().equals(nodeId)) {
+                    isValid = true;
+                    break;
+                }
             }
         }
 
-        return true;
+        return isValid;
     }
 
     private void swapPlayer() {
