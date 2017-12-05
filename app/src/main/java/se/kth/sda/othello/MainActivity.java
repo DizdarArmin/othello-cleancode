@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
                 try {
                     game.move(currentPlay.getId(), nodeId);
                 } catch (IllegalStateException e) {
-                    if (e.getMessage().equals("Invalid move")) {
+                    if (e.getMessage().equals("You performed an invalid move")) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         return;
                     }
