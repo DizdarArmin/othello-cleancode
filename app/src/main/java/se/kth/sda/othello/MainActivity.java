@@ -23,8 +23,8 @@ public class MainActivity extends Activity {
     Othello game;
     //start: modify by Xin 11.23
     private ImageView turnImage;
-    private TextView totlePlayone;
-    private TextView totlePlaytow;
+    private TextView totalPlayerOne;
+    private TextView totalPlayerTwo;
     //end
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +33,9 @@ public class MainActivity extends Activity {
 
         final BoardView boardView = (BoardView) findViewById(R.id.boardView);
         //start: modify by Xin 11.23
-        turnImage = (ImageView) findViewById(R.id.ture_image);
-        totlePlayone=(TextView) findViewById(R.id.totle_playone);
-        totlePlaytow=(TextView) findViewById(R.id.totle_playtwo);
+        turnImage = (ImageView) findViewById(R.id.turn_image);
+        totalPlayerOne =(TextView) findViewById(R.id.total_playerOne);
+        totalPlayerTwo =(TextView) findViewById(R.id.total_playerTwo);
         //end
         if (this.getIntent().getExtras().getString(GAME_TYPE).equals(GAME_HUMAN)) {
             game = gameFactory.createHumanGame();
@@ -63,8 +63,8 @@ public class MainActivity extends Activity {
 
                 swapPlayerTurnImage(currentPlay);
 
-                totlePlayone.setText(String.valueOf(game.getPlayerScore(GAME_PLAYERONE)));
-                totlePlaytow.setText(String.valueOf(game.getPlayerScore(GAME_PLAYERTWO)));
+                totalPlayerOne.setText(String.valueOf(game.getPlayerScore(GAME_PLAYERONE)));
+                totalPlayerTwo.setText(String.valueOf(game.getPlayerScore(GAME_PLAYERTWO)));
 
                 //end
                 boardView.invalidate();
