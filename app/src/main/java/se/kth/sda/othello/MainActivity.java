@@ -52,16 +52,13 @@ public class MainActivity extends Activity {
                 Player currentPlay = game.getPlayerInTurn();
                 try {
                     game.move(currentPlay.getId(), nodeId);
+                    swapPlayerTurnImage(currentPlay);
                 } catch (IllegalStateException e) {
                     if (e.getMessage().equals("You performed an invalid move")) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }
-
-                //start: modify by Xin 11.23
-
-                swapPlayerTurnImage(currentPlay);
 
                 totalPlayerOne.setText(String.valueOf(game.getPlayerScore(GAME_PLAYERONE)));
                 totalPlayerTwo.setText(String.valueOf(game.getPlayerScore(GAME_PLAYERTWO)));
