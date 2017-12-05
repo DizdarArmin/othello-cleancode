@@ -1,9 +1,10 @@
 package se.kth.sda.othello;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -18,6 +19,9 @@ import se.kth.sda.othello.board.Node;
 
 public class BoardView extends View {
     private Board model;
+    Bitmap dark = BitmapFactory.decodeResource(getResources(),R.mipmap.dark);
+    Bitmap light  = BitmapFactory.decodeResource(getResources(),R.mipmap.light);
+
 
     public void setModel(Board model) {
         this.model = model;
@@ -54,21 +58,22 @@ public class BoardView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+
+
+        // Modified method to draw image instead of paint.
+        // By Armin Dizdar 05/12/2017
         int height = getHeight();
         int width = getWidth();
-        Paint blackPaint = new Paint();
-        Paint whitePaint = new Paint();
 
-        whitePaint.setARGB(255, 255, 255, 255);
         for (int i=0; i<8; i++) {
             for (int j=0; j<8; j++) {
-                RectF rect = new RectF(width/8*i, height/8*j, width/8*(i+1), height/8*(j+1));
                 if ((i+j)%2 == 0)
-                    canvas.drawRect(rect, blackPaint);
+                    canvas.drawBitmap(dark, width/8*i, height/8*j, null);
                 else
-                    canvas.drawRect(rect, whitePaint);
+                    canvas.drawBitmap(light, width/8*i, height/8*j, null);
             }
         }
+
 
         /*
         Resources res = getResources();
@@ -80,13 +85,15 @@ public class BoardView extends View {
         if (model == null)
             return;
 
-        Paint redPaint = new Paint();
-        redPaint.setARGB(255, 255, 0, 0);
-        Paint greenPaint = new Paint();
-        greenPaint.setARGB(255, 0, 255, 0);
+        Paint whitePaint = new Paint();
+        whitePaint.setARGB(255, 255, 255, 255);
+        Paint blackPaint = new Paint();
+        blackPaint.setARGB(255, 0, 0, 0);
+
+
         for (Node node : model.getNodes()) {
             if (node.isMarked()) {
-                Paint color = node.getOccupantPlayerId().equals("P1") ? redPaint : greenPaint;
+                Paint color = node.getOccupantPlayerId().equals("P1") ? whitePaint : blackPaint;
                 canvas.drawCircle(
                         (float)(width/8*(node.getXCoordinate()+0.5)),
                         (float)(height/8*(node.getYCoordinate()+0.5)),

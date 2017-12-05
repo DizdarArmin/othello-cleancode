@@ -110,10 +110,10 @@
     </GridLayout>
 
     <se.kth.sda.othello.BoardView
+        android:id="@+id/boardView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/boardView" />
+        android:layout_weight="1" />
 
     <Button
         android:layout_width="wrap_content"
