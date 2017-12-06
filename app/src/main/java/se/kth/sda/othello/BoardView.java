@@ -70,7 +70,7 @@ public class BoardView extends View {
                 if ((i+j)%2 == 0)
                     canvas.drawBitmap(dark, width/8*i, height/8*j, null);
                 else
-                    canvas.drawBitmap(light, width/8*i, height/8*j, null);
+                   canvas.drawBitmap(light, width/8*i, height/8*j, null);
             }
         }
 
