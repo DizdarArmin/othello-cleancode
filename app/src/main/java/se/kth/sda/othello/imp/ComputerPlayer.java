@@ -3,18 +3,20 @@ package se.kth.sda.othello.imp;
 import se.kth.sda.othello.player.Player;
 
 /**
- * Created by robertog on 2/7/17.
+ * Created by alexo1979 on 12/5/17.
+ *
+ * A class for a Computer player
  */
-public class HumanPlayer implements Player {
+
+public class ComputerPlayer implements Player {
     private final String id;
     private final String name;
 
     private int score;
 
-    public HumanPlayer(String id, String name) {
+    public ComputerPlayer(String id, String name) {
         this.id = id;
         this.name = name;
-
         //the starting score
         this.score = 2;
     }
@@ -31,16 +33,16 @@ public class HumanPlayer implements Player {
 
     @Override
     public Type getType() {
-        return Type.HUMAN;
+        return Type.COMPUTER;
     }
 
-    //start: new method by Aleksandar 12.01
+    //start: new method by Aleksandar 12.05
     @Override
     public int getScore() {
         return this.score;
     }
 
-    //start: new method by Aleksandar 12.01
+    //start: new method by Aleksandar 12.05
     @Override
     public void setScore(int score) {
         this.score = score;

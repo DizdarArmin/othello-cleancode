@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
                     game.move(currentPlay.getId(), nodeId);
                     swapPlayerTurnImage(currentPlay);
                 } catch (IllegalStateException e) {
-                    if (e.getMessage().equals("You performed an invalid move")) {
+                    if (e.getMessage().equals("Invalid move")) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         return;
                     }
