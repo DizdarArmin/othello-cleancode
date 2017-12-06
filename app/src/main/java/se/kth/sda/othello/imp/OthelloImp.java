@@ -60,301 +60,324 @@ public class OthelloImp implements Othello {
             //check NORTH
 
             int k = node.getXCoordinate();
-            int l = node.getYCoordinate()-1;
+            int l = node.getYCoordinate() - 1;
 
-            if(nodes[k][l].isMarked() &&
-                    !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                dirRes.add(nodes[k][l]);
-                l--;
-                while(l >= 0) {
-                    if (nodes[k][l].isMarked() &&
-                            !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                        dirRes.add(nodes[k][l]);
-                        l--;
-                    }
-                    else if(!nodes[k][l].isMarked()) {
-                        dirRes.clear();
-                        break;
-                    }
-                    else {
-                        foundPlayer = true;
-                        break;
-                    }
+            if (l > 1) {
+                if (nodes[k][l].isMarked() &&
+                        !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                    dirRes.add(nodes[k][l]);
 
+                    l--;
+
+                    while (l >= 0) {
+                        if (nodes[k][l].isMarked() &&
+                                !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                            dirRes.add(nodes[k][l]);
+
+                            l--;
+
+                        } else if (!nodes[k][l].isMarked()) {
+                            dirRes.clear();
+                            break;
+                        } else {
+                            foundPlayer = true;
+                            break;
+                        }
+
+                    }
                 }
-            }
-            if(foundPlayer && dirRes.size() > 0) {
-                for(Node node1 : dirRes) {
-                    res.add(node1);
+                if (foundPlayer && dirRes.size() > 0) {
+                    for (Node node1 : dirRes) {
+                        res.add(node1);
+                    }
                 }
+                dirRes.clear();
+                foundPlayer = false;
             }
-            dirRes.clear();
-            foundPlayer = false;
-
 
             //check SOUTH
 
             k = node.getXCoordinate();
-            l = node.getYCoordinate()+1;
+            l = node.getYCoordinate() + 1;
 
-            if(nodes[k][l].isMarked() &&
-                    !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                dirRes.add(nodes[k][l]);
-                l++;
-                while(l < 8) {
-                    if (nodes[k][l].isMarked() &&
-                            !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                        dirRes.add(nodes[k][l]);
-                        l++;
-                    }
-                    else if(!nodes[k][l].isMarked()) {
-                        dirRes.clear();
-                        break;
-                    }
-                    else {
-                        foundPlayer = true;
-                        break;
-                    }
+            if (l < 6) {
+                if (nodes[k][l].isMarked() &&
+                        !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                    dirRes.add(nodes[k][l]);
 
+                    l++;
+
+                    while (l < 8) {
+                        if (nodes[k][l].isMarked() &&
+                                !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                            dirRes.add(nodes[k][l]);
+
+                            l++;
+
+                        } else if (!nodes[k][l].isMarked()) {
+                            dirRes.clear();
+                            break;
+                        } else {
+                            foundPlayer = true;
+                            break;
+                        }
+
+                    }
                 }
-            }
-            if(foundPlayer && dirRes.size() > 0) {
-                for(Node node1 : dirRes) {
-                    res.add(node1);
+                if (foundPlayer && dirRes.size() > 0) {
+                    for (Node node1 : dirRes) {
+                        res.add(node1);
+                    }
                 }
+                dirRes.clear();
+                foundPlayer = false;
             }
-            dirRes.clear();
-            foundPlayer = false;
-
-
 
             //check EAST
 
-            k = node.getXCoordinate()+1;
+            k = node.getXCoordinate() + 1;
             l = node.getYCoordinate();
 
-            if(nodes[k][l].isMarked() &&
-                    !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                dirRes.add(nodes[k][l]);
-                k++;
-                while(k < 8) {
-                    if (nodes[k][l].isMarked() &&
-                            !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                        dirRes.add(nodes[k][l]);
-                        k++;
-                    }
-                    else if(!nodes[k][l].isMarked()) {
-                        dirRes.clear();
-                        break;
-                    }
-                    else {
-                        foundPlayer = true;
-                        break;
-                    }
+            if (k < 6) {
+                if (nodes[k][l].isMarked() &&
+                        !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                    dirRes.add(nodes[k][l]);
 
+                    k++;
+
+                    while (k < 8) {
+                        if (nodes[k][l].isMarked() &&
+                                !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                            dirRes.add(nodes[k][l]);
+
+                            k++;
+
+                        } else if (!nodes[k][l].isMarked()) {
+                            dirRes.clear();
+                            break;
+                        } else {
+                            foundPlayer = true;
+                            break;
+                        }
+
+                    }
                 }
-            }
-            if(foundPlayer && dirRes.size() > 0) {
-                for(Node node1 : dirRes) {
-                    res.add(node1);
+                if (foundPlayer && dirRes.size() > 0) {
+                    for (Node node1 : dirRes) {
+                        res.add(node1);
+                    }
                 }
+                dirRes.clear();
+                foundPlayer = false;
             }
-            dirRes.clear();
-            foundPlayer = false;
-
-
 
             //check WEST
 
-            k = node.getXCoordinate()-1;
+            k = node.getXCoordinate() - 1;
             l = node.getYCoordinate();
 
-            if(nodes[k][l].isMarked() &&
-                    !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                dirRes.add(nodes[k][l]);
-                k--;
-                while(k >= 0) {
-                    if (nodes[k][l].isMarked() &&
-                            !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                        dirRes.add(nodes[k][l]);
-                        k--;
-                    }
-                    else if(!nodes[k][l].isMarked()) {
-                        dirRes.clear();
-                        break;
-                    }
-                    else {
-                        foundPlayer = true;
-                        break;
-                    }
+            if (k > 1) {
+                if (nodes[k][l].isMarked() &&
+                        !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                    dirRes.add(nodes[k][l]);
 
-                }
-            }
-            if(foundPlayer && dirRes.size() > 0) {
-                for(Node node1 : dirRes) {
-                    res.add(node1);
-                }
-            }
-            dirRes.clear();
-            foundPlayer = false;
+                    k--;
 
+                    while (k >= 0) {
+                        if (nodes[k][l].isMarked() &&
+                                !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                            dirRes.add(nodes[k][l]);
+
+                            k--;
+
+                        } else if (!nodes[k][l].isMarked()) {
+                            dirRes.clear();
+                            break;
+                        } else {
+                            foundPlayer = true;
+                            break;
+                        }
+
+                    }
+                }
+                if (foundPlayer && dirRes.size() > 0) {
+                    for (Node node1 : dirRes) {
+                        res.add(node1);
+                    }
+                }
+                dirRes.clear();
+                foundPlayer = false;
+            }
 
             //check NORTHWEST
 
-            k = node.getXCoordinate()-1;
-            l = node.getYCoordinate()-1;
+            k = node.getXCoordinate() - 1;
+            l = node.getYCoordinate() - 1;
 
-            if(nodes[k][l].isMarked() &&
-                    !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                dirRes.add(nodes[k][l]);
-                k--;
-                l--;
-                while(k >= 0 || l >= 0) {
-                    if (nodes[k][l].isMarked() &&
-                            !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                        dirRes.add(nodes[k][l]);
-                        k--;
-                        l--;
-                    }
-                    else if(!nodes[k][l].isMarked()) {
-                        dirRes.clear();
-                        break;
-                    }
-                    else {
-                        foundPlayer = true;
-                        break;
-                    }
+            if (k > 1 && l > 1) {
+                if (nodes[k][l].isMarked() &&
+                        !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                    dirRes.add(nodes[k][l]);
 
+                    k--;
+                    l--;
+
+                    while (k >= 0 && l >= 0) {
+                        if (nodes[k][l].isMarked() &&
+                                !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                            dirRes.add(nodes[k][l]);
+
+                            k--;
+                            l--;
+
+                        } else if (!nodes[k][l].isMarked()) {
+                            dirRes.clear();
+                            break;
+                        } else {
+                            foundPlayer = true;
+                            break;
+                        }
+
+                    }
                 }
-            }
-            if(foundPlayer && dirRes.size() > 0) {
-                for(Node node1 : dirRes) {
-                    res.add(node1);
+                if (foundPlayer && dirRes.size() > 0) {
+                    for (Node node1 : dirRes) {
+                        res.add(node1);
+                    }
                 }
+                dirRes.clear();
+                foundPlayer = false;
             }
-            dirRes.clear();
-            foundPlayer = false;
-
-
 
             //check SOUTHEAST
 
-            k = node.getXCoordinate()+1;
-            l = node.getYCoordinate()+1;
+            k = node.getXCoordinate() + 1;
+            l = node.getYCoordinate() + 1;
 
-            if(nodes[k][l].isMarked() &&
-                    !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                dirRes.add(nodes[k][l]);
-                k++;
-                l++;
-                while(k < 8 || l < 8) {
-                    if (nodes[k][l].isMarked() &&
-                            !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                        dirRes.add(nodes[k][l]);
-                        k++;
-                        l++;
-                    }
-                    else if(!nodes[k][l].isMarked()) {
-                        dirRes.clear();
-                        break;
-                    }
-                    else {
-                        foundPlayer = true;
-                        break;
-                    }
+            if (k < 6 && l < 6) {
+                if (nodes[k][l].isMarked() &&
+                        !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                    dirRes.add(nodes[k][l]);
 
+                    k++;
+                    l++;
+
+                    while (k < 8 && l < 8) {
+                        if (nodes[k][l].isMarked() &&
+                                !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                            dirRes.add(nodes[k][l]);
+
+                            k++;
+                            l++;
+
+                        } else if (!nodes[k][l].isMarked()) {
+                            dirRes.clear();
+                            break;
+                        } else {
+                            foundPlayer = true;
+                            break;
+                        }
+
+                    }
                 }
-            }
-            if(foundPlayer && dirRes.size() > 0) {
-                for(Node node1 : dirRes) {
-                    res.add(node1);
+                if (foundPlayer && dirRes.size() > 0) {
+                    for (Node node1 : dirRes) {
+                        res.add(node1);
+                    }
                 }
+                dirRes.clear();
+                foundPlayer = false;
             }
-            dirRes.clear();
-            foundPlayer = false;
-
 
             //check NORTHEAST
 
-            k = node.getXCoordinate()+1;
-            l = node.getYCoordinate()-1;
+            k = node.getXCoordinate() + 1;
+            l = node.getYCoordinate() - 1;
 
-            if(nodes[k][l].isMarked() &&
-                    !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                dirRes.add(nodes[k][l]);
-                k++;
-                l--;
-                while(k < 8 || l >= 0) {
-                    if (nodes[k][l].isMarked() &&
-                            !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                        dirRes.add(nodes[k][l]);
-                        k++;
-                        l--;
-                    }
-                    else if(!nodes[k][l].isMarked()) {
-                        dirRes.clear();
-                        break;
-                    }
-                    else {
-                        foundPlayer = true;
-                        break;
-                    }
+            if (k < 6 && l > 1) {
+                if (nodes[k][l].isMarked() &&
+                        !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                    dirRes.add(nodes[k][l]);
 
+                    k++;
+                    l--;
+
+                    while (k < 8 && l >= 0) {
+                        if (nodes[k][l].isMarked() &&
+                                !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                            dirRes.add(nodes[k][l]);
+
+                            k++;
+                            l--;
+
+                        } else if (!nodes[k][l].isMarked()) {
+                            dirRes.clear();
+                            break;
+                        } else {
+                            foundPlayer = true;
+                            break;
+                        }
+
+                    }
                 }
-            }
-            if(foundPlayer && dirRes.size() > 0) {
-                for(Node node1 : dirRes) {
-                    res.add(node1);
+                if (foundPlayer && dirRes.size() > 0) {
+                    for (Node node1 : dirRes) {
+                        res.add(node1);
+                    }
                 }
+                dirRes.clear();
+                foundPlayer = false;
             }
-            dirRes.clear();
-            foundPlayer = false;
-
 
             //check SOUTHWEST
 
-            k = node.getXCoordinate()-1;
-            l = node.getYCoordinate()+1;
+            k = node.getXCoordinate() - 1;
+            l = node.getYCoordinate() + 1;
 
-            if(nodes[k][l].isMarked() &&
-                    !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                dirRes.add(nodes[k][l]);
-                k--;
-                l++;
-                while(k >= 0 || l < 8) {
-                    if (nodes[k][l].isMarked() &&
-                            !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
-                        dirRes.add(nodes[k][l]);
-                        k--;
-                        l++;
-                    }
-                    else if(!nodes[k][l].isMarked()) {
-                        dirRes.clear();
-                        break;
-                    }
-                    else {
-                        foundPlayer = true;
-                        break;
-                    }
+            if (k > 1 && l < 6) {
+                if (nodes[k][l].isMarked() &&
+                        !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                    dirRes.add(nodes[k][l]);
 
+                    k--;
+                    l++;
+
+                    while (k >= 0 && l < 8) {
+                        if (nodes[k][l].isMarked() &&
+                                !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
+                            dirRes.add(nodes[k][l]);
+
+                            k--;
+                            l++;
+
+                        } else if (!nodes[k][l].isMarked()) {
+                            dirRes.clear();
+                            break;
+                        } else {
+                            foundPlayer = true;
+                            break;
+                        }
+
+                    }
+                }
+
+                if (foundPlayer && dirRes.size() > 0) {
+                    for (Node node1 : dirRes) {
+                        res.add(node1);
+                    }
+                }
+                dirRes.clear();
+                foundPlayer = false;
+            }
+
+                if (res.size() > 0) {
+                    res.add(node);
+                    return res;
+                } else {
+                    return res;
                 }
             }
-            if(foundPlayer && dirRes.size() > 0) {
-                for(Node node1 : dirRes) {
-                    res.add(node1);
-                }
-            }
-            dirRes.clear();
-            foundPlayer = false;
-        }
-
-        if (res.size() > 0) {
-            res.add(node);
-            return res;
-        }
-        else {
-            return res;
-        }
+        return res;
 
     }
 
@@ -364,14 +387,6 @@ public class OthelloImp implements Othello {
         Node nodes[][] = getBoard().getBoardNodes();
         List<Node> res = new Vector<Node>();
 
-        //Test if the nodes array if full
-        /*for (int i=0; i<8; i++) {
-            for (int j=0; j<8; j++) {
-                System.out.print(nodes[i][j].getOccupantPlayerId() + "  ");
-            }
-            System.out.println();
-        }*/
-
         for (int i=0; i<8; i++) {
             for (int j=0; j<8; j++) {
 
@@ -379,6 +394,7 @@ public class OthelloImp implements Othello {
                 if(getPlayerInTurn().getId().equals(nodes[i][j].getOccupantPlayerId()) &&
                         nodes[i][j].getYCoordinate() > 1) {
                     int k = j-1;
+
                     if(nodes[i][k].isMarked() &&
                             !getPlayerInTurn().getId().equals(nodes[i][k].getOccupantPlayerId())) {
                         k--;
@@ -475,7 +491,7 @@ public class OthelloImp implements Othello {
                             !getPlayerInTurn().getId().equals(nodes[k][l].getOccupantPlayerId())) {
                         k--;
                         l--;
-                        while(k >= 0 || l >= 0) {
+                        while(k >= 0 && l >= 0) {
                             if (nodes[k][l].isMarked() &&
                                     !getPlayerInTurn().getId().equals(nodes[k][l].getOccupantPlayerId())) {
                                 k--;
@@ -494,14 +510,14 @@ public class OthelloImp implements Othello {
 
                 //check SOUTHEAST
                 if(getPlayerInTurn().getId().equals(nodes[i][j].getOccupantPlayerId()) &&
-                        (nodes[i][j].getXCoordinate() > 1 && nodes[i][j].getYCoordinate() > 1)) {
+                        (nodes[i][j].getXCoordinate() < 6 && nodes[i][j].getYCoordinate() < 6)) {
                     int k = i+1;
                     int l = j+1;
                     if(nodes[k][l].isMarked() &&
                             !getPlayerInTurn().getId().equals(nodes[k][l].getOccupantPlayerId())) {
                         k++;
                         l++;
-                        while(k < 8 || l < 8) {
+                        while(k < 8 && l < 8) {
                             if (nodes[k][l].isMarked() &&
                                     !getPlayerInTurn().getId().equals(nodes[k][l].getOccupantPlayerId())) {
                                 k++;
@@ -526,7 +542,7 @@ public class OthelloImp implements Othello {
                             !getPlayerInTurn().getId().equals(nodes[k][l].getOccupantPlayerId())) {
                         k++;
                         l--;
-                        while(k < 8 || l >= 0) {
+                        while(k < 8 && l >= 0) {
                             if (nodes[k][l].isMarked() &&
                                     !getPlayerInTurn().getId().equals(nodes[k][l].getOccupantPlayerId())) {
                                 k++;
@@ -551,7 +567,7 @@ public class OthelloImp implements Othello {
                             !getPlayerInTurn().getId().equals(nodes[k][l].getOccupantPlayerId())) {
                         k--;
                         l++;
-                        while(k >= 0 || l < 8) {
+                        while(k >= 0 && l < 8) {
                             if (nodes[k][l].isMarked() &&
                                     !getPlayerInTurn().getId().equals(nodes[k][l].getOccupantPlayerId())) {
                                 k--;
@@ -688,10 +704,18 @@ public class OthelloImp implements Othello {
      * @author petrych
      */
     public void moveInitialNodes() {
-        board.setNode(new NodeImp("3,3", playerOne.getId()));
-        board.setNode(new NodeImp("4,3", playerTwo.getId()));
+        board.setNode(new NodeImp("2,2", playerTwo.getId()));
+        board.setNode(new NodeImp("3,2", playerTwo.getId()));
+        board.setNode(new NodeImp("4,2", playerTwo.getId()));
+        board.setNode(new NodeImp("1,3", playerTwo.getId()));
+        board.setNode(new NodeImp("2,3", playerTwo.getId()));
+        board.setNode(new NodeImp("3,3", playerTwo.getId()));
+        board.setNode(new NodeImp("4,3", playerOne.getId()));
+        board.setNode(new NodeImp("3,4", playerOne.getId()));
         board.setNode(new NodeImp("4,4", playerOne.getId()));
-        board.setNode(new NodeImp("3,4", playerTwo.getId()));
+        board.setNode(new NodeImp("2,5", playerOne.getId()));
+        board.setNode(new NodeImp("3,5", playerOne.getId()));
+        board.setNode(new NodeImp("4,5", playerOne.getId()));
     }
 
     @Override
