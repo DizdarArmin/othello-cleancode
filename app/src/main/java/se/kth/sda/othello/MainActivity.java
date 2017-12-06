@@ -51,8 +51,14 @@ public class MainActivity extends Activity {
                 String nodeId = NodeImp.format(x, y);
                 Player currentPlay = game.getPlayerInTurn();
                 try {
-                    game.move(currentPlay.getId(), nodeId);
-                    swapPlayerTurnImage(currentPlay);
+                    if (game.isActive()) { // check there are valid moves
+                        game.move(currentPlay.getId(), nodeId);
+                        swapPlayerTurnImage(currentPlay);
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), game.getGameEndMessage(), Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                 } catch (IllegalStateException e) {
                     if (e.getMessage().equals("Invalid move")) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();

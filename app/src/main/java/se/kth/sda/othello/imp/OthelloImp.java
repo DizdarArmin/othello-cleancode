@@ -722,4 +722,14 @@ public class OthelloImp implements Othello {
         }
         return score;
     }
+
+    @Override
+    public String getGameEndMessage() {
+        int playerOneScore = getPlayerScore(playerOne.getId());
+        int playerTwoScore = getPlayerScore(playerTwo.getId());
+
+        return "Game is over. The score is:\n" +
+                    playerOneScore + " (Player 1) : " +
+                    playerTwoScore + " (Player 2)";
+    }
 }

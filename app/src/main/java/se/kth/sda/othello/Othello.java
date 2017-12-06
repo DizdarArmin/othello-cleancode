@@ -126,7 +126,14 @@ public interface Othello {
 	public int getPlayerScore(String playerId);
 
 	/**
-	 +	 * Sets initial coins for both players on 4 central nodes.
-	 +	 */
+	 * Return a message with a score when the game ends.
+	 * @return string message
+	 * @author petrych
+	 */
+	public String getGameEndMessage();
+
+	/**
+	 * Sets initial coins for both players on 4 central nodes.
+	 */
 	public void moveInitialNodes();
 }
