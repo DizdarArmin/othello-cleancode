@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -11,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:columnCount="3">
+        android:columnCount="5">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
             android:layout_column="0"
+            android:layout_columnWeight="1"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -25,73 +26,81 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/main_playone"
-                android:textStyle="bold"/>
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="2dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/main_totle"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/total_playerOne"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2"
                     android:layout_marginLeft="3dp"
-                    android:textStyle="bold"/>
+                    android:text="2"
+                    android:textStyle="bold" />
+
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_width="wrap_content"
-                      android:layout_columnWeight="1"
-            android:orientation="vertical" android:layout_column="1">
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/turn_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_arrow_left"/>
+                android:src="@mipmap/ic_arrow_left" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/main_yourturn"
                 android:layout_gravity="center"
-                android:textStyle="bold"/>
+                android:text="@string/main_yourturn"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                      android:gravity="center"
-                      android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:layout_column="2">
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/main_playtwo"
-                android:textStyle="bold"/>
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="2dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/main_totle"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/total_playerTwo"
@@ -99,12 +108,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
                     android:text="2"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
 
         </LinearLayout>
-
 
 
     </GridLayout>
@@ -113,14 +121,16 @@
         android:id="@+id/boardView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="@android:color/background_light" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
+        android:background="@mipmap/button"
         android:onClick="quitGame"
-        android:text="Quit match!"/>
+        android:text="Quit match!" />
 
 </LinearLayout>
