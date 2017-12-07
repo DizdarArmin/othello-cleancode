@@ -370,13 +370,13 @@ public class OthelloImp implements Othello {
                 foundPlayer = false;
             }
 
-                if (res.size() > 0) {
-                    res.add(node);
-                    return res;
-                } else {
-                    return res;
-                }
+            if (res.size() > 0) {
+                res.add(node);
+                return res;
+            } else {
+                return res;
             }
+        }
         return res;
 
     }
@@ -704,18 +704,10 @@ public class OthelloImp implements Othello {
      * @author petrych
      */
     public void moveInitialNodes() {
-        board.setNode(new NodeImp("2,2", playerTwo.getId()));
-        board.setNode(new NodeImp("3,2", playerTwo.getId()));
-        board.setNode(new NodeImp("4,2", playerTwo.getId()));
-        board.setNode(new NodeImp("1,3", playerTwo.getId()));
-        board.setNode(new NodeImp("2,3", playerTwo.getId()));
-        board.setNode(new NodeImp("3,3", playerTwo.getId()));
-        board.setNode(new NodeImp("4,3", playerOne.getId()));
-        board.setNode(new NodeImp("3,4", playerOne.getId()));
+        board.setNode(new NodeImp("3,3", playerOne.getId()));
+        board.setNode(new NodeImp("3,4", playerTwo.getId()));
+        board.setNode(new NodeImp("4,3", playerTwo.getId()));
         board.setNode(new NodeImp("4,4", playerOne.getId()));
-        board.setNode(new NodeImp("2,5", playerOne.getId()));
-        board.setNode(new NodeImp("3,5", playerOne.getId()));
-        board.setNode(new NodeImp("4,5", playerOne.getId()));
     }
 
     @Override
