@@ -1,7 +1,5 @@
 package se.kth.sda.othello.imp;
 
-import android.widget.Toast;
-
 import java.util.List;
 import java.util.Vector;
 
@@ -745,9 +743,17 @@ public class OthelloImp implements Othello {
     public String getGameEndMessage() {
         int playerOneScore = getPlayerScore(playerOne.getId());
         int playerTwoScore = getPlayerScore(playerTwo.getId());
+        String toDisplay = null;
+        if (playerOneScore > playerTwoScore) {
+            toDisplay = "White wins!\n"+ "The score is: \n"+ "White: " + playerOneScore + "\n" + "Black: " + playerTwoScore;
+        }
+        else if (playerTwoScore > playerOneScore) {
+            toDisplay = "Black wins!\n "+ "The score is: \n"+ "White: " + playerOneScore + "\n" + "Black: " + playerTwoScore;
+        }
+        else {
+            toDisplay = "Its a draw! "+ "The score is: \n"+ "White: " + playerOneScore + "\n" + "Black: " + playerTwoScore;
+        }
 
-        return "Game is over. The score is:\n" +
-                    playerOneScore + " (Player 1) : " +
-                    playerTwoScore + " (Player 2)";
+        return toDisplay;
     }
 }

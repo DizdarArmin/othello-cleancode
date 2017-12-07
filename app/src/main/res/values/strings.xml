@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AndroidOthello</string>
-    <string name="main_playone">Player One</string>
-    <string name="main_playtwo">Player Two</string>
+    <string name="main_playone">White</string>
+    <string name="main_playtwo">Black</string>
     <string name="main_totle">Total : </string>
     <string name="main_yourturn">Your Turn</string>
 </resources>

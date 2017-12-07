@@ -78,6 +78,11 @@ public class MainActivity extends Activity {
 
                 //end
                 boardView.invalidate();
+
+                if (!game.isActive()) {
+                    Toast.makeText(getApplicationContext(), game.getGameEndMessage(), Toast.LENGTH_SHORT).show();
+                    swapPlayerTurnImage(currentPlay);
+                }
             }
         });
     }
