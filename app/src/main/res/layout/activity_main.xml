@@ -129,7 +129,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@mipmap/button"
+        android:background="@drawable/border_layout"
         android:onClick="quitGame"
         android:text="Quit match!" />
 
