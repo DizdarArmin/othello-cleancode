@@ -68,7 +68,8 @@ public class ComputerPlayer implements Player {
     }
 
     //start: new method by Aleksandar 12.07
-    public String pickMove (Vector<Node> possibleMoves, String playerID) {
+    @Override
+    public String pickMove (List<Node> possibleMoves) {
         if (possibleMoves.size() > 1) {
             String nodeID = possibleMoves.get(0).getId();
             int value = nodeValues[possibleMoves.get(0).getXCoordinate()][possibleMoves.get(0).getYCoordinate()];

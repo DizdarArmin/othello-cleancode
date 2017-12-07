@@ -1,5 +1,8 @@
 package se.kth.sda.othello.imp;
 
+import java.util.List;
+
+import se.kth.sda.othello.board.Node;
 import se.kth.sda.othello.player.Player;
 
 /**
@@ -17,6 +20,14 @@ public class HumanPlayer implements Player {
 
         //the starting score
         this.score = 2;
+    }
+
+    //start: new method by Aleksandar 12.07
+    //Right now we are not using this method for a Human Player
+    //But it can be used later as Help feature is added
+    @Override
+    public String pickMove(List<Node> possibleMoves) {
+        return null;
     }
 
     @Override
