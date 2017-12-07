@@ -52,8 +52,15 @@ public class MainActivity extends Activity {
                 Player currentPlay = game.getPlayerInTurn();
                 try {
                     if (game.isActive()) { // check there are valid moves
-                        game.move(currentPlay.getId(), nodeId);
-                        swapPlayerTurnImage(currentPlay);
+                        if (game.hasValidMove(currentPlay.getId())) {
+                            game.move(currentPlay.getId(), nodeId);
+                            swapPlayerTurnImage(currentPlay);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Current player has no moves. Switched to another player", Toast.LENGTH_SHORT).show();
+                            game.swapPlayer();
+                            swapPlayerTurnImage(currentPlay);
+                        }
                     }
                     else {
                         Toast.makeText(getApplicationContext(), game.getGameEndMessage(), Toast.LENGTH_SHORT).show();

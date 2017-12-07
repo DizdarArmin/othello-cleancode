@@ -653,7 +653,8 @@ public class OthelloImp implements Othello {
         return isValid;
     }
 
-    private void swapPlayer() {
+    @Override
+    public void swapPlayer() {
         if (currentPlayer == playerOne)
             currentPlayer = playerTwo;
         else
@@ -708,6 +709,7 @@ public class OthelloImp implements Othello {
         board.setNode(new NodeImp("3,4", playerTwo.getId()));
         board.setNode(new NodeImp("4,3", playerTwo.getId()));
         board.setNode(new NodeImp("4,4", playerOne.getId()));
+        nodeRes = board.getNodes();
     }
 
     @Override
