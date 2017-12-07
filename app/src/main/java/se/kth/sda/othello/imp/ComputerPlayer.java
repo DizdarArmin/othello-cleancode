@@ -1,5 +1,9 @@
 package se.kth.sda.othello.imp;
 
+import java.util.List;
+import java.util.Vector;
+
+import se.kth.sda.othello.board.Node;
 import se.kth.sda.othello.player.Player;
 
 /**
@@ -11,6 +15,16 @@ import se.kth.sda.othello.player.Player;
 public class ComputerPlayer implements Player {
     private final String id;
     private final String name;
+
+    // The value of every node wich can help the CPU to make a logical move
+    private final int nodeValues[][] = {{120, -20, 20,  5,  5, 20, -20, 120},
+                                        {-20, -40, -5, -5, -5, -5, -40, -20},
+                                        { 20,  -5, 15,  3,  3, 15,  -5,  20},
+                                        {  5,  -5,  3,  3,  3,  3,  -5,   5},
+                                        {  5,  -5,  3,  3,  3,  3,  -5,   5},
+                                        { 20,  -5, 15,  3,  3, 15,  -5,  20},
+                                        {-20, -40, -5, -5, -5, -5, -40, -20},
+                                        {120, -20, 20,  5,  5, 20, -20, 120}};
 
     private int score;
 
@@ -46,5 +60,31 @@ public class ComputerPlayer implements Player {
     @Override
     public void setScore(int score) {
         this.score = score;
+    }
+
+    //start: new method by Aleksandar 12.07
+    public int getNodeValue(int x, int y) {
+        return this.nodeValues[x][y];
+    }
+
+    //start: new method by Aleksandar 12.07
+    public String pickMove (Vector<Node> possibleMoves, String playerID) {
+        if (possibleMoves.size() > 1) {
+            String nodeID = possibleMoves.get(0).getId();
+            int value = nodeValues[possibleMoves.get(0).getXCoordinate()][possibleMoves.get(0).getYCoordinate()];
+
+            for (int i = 1; i < possibleMoves.size(); i++) {
+
+                if (value < nodeValues[possibleMoves.get(i).getXCoordinate()][possibleMoves.get(i).getYCoordinate()]) {
+
+                    value = nodeValues[possibleMoves.get(i).getXCoordinate()][possibleMoves.get(i).getYCoordinate()];
+                    nodeID = possibleMoves.get(i).getId();
+                }
+            }
+            return nodeID;
+        }
+        else
+            return possibleMoves.get(0).getId();
+
     }
 }
