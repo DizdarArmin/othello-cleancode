@@ -3,7 +3,11 @@ package se.kth.sda.othello;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,18 +61,18 @@ public class MainActivity extends Activity {
                             swapPlayerTurnImage(currentPlay);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Current player has no moves. Switched to another player", Toast.LENGTH_SHORT).show();
+                            displayToast("Current player has no moves. Switched to another player");
                             game.swapPlayer();
                             swapPlayerTurnImage(currentPlay);
                         }
                     }
                     else {
-                        Toast.makeText(getApplicationContext(), game.getGameEndMessage(), Toast.LENGTH_SHORT).show();
+                        displayEndMessage(game.getGameEndMessage());
                         return;
                     }
                 } catch (IllegalStateException e) {
                     if (e.getMessage().equals("Invalid move")) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        displayToast(e.getMessage());
                         return;
                     }
                 }
@@ -80,11 +84,50 @@ public class MainActivity extends Activity {
                 boardView.invalidate();
 
                 if (!game.isActive()) {
-                    Toast.makeText(getApplicationContext(), game.getGameEndMessage(), Toast.LENGTH_SHORT).show();
+                    displayEndMessage(game.getGameEndMessage());
                     swapPlayerTurnImage(currentPlay);
+                    return;
                 }
             }
         });
+    }
+
+    private void displayEndMessage(String message){
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View popUp = inflater.inflate(R.layout.pop_up_layout, null);
+        dialogBuilder.setView(popUp);
+        final AlertDialog alertDialog = dialogBuilder.create();
+
+        TextView text =(TextView) popUp.findViewById(R.id.end_message);
+        Button menu = (Button) popUp.findViewById(R.id.menu_button);
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.cancel();
+                quitGame(view);
+            }
+        });
+        text.setText(message);
+        alertDialog.show();
+
+
+        }
+
+
+    // Customized toast method which displays rectangle toast with white background and black text.
+    // @param message
+    // By Armin Dizdar
+    private void displayToast(String message){
+        Toast toast = new Toast(MainActivity.this);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        LayoutInflater li = getLayoutInflater();
+        View toastAppear = li.inflate(R.layout.toast_layout, (ViewGroup) findViewById(R.id.toast_layout_linear));
+        toast.setView(toastAppear);
+        TextView toastToDisplay = (TextView) toastAppear.findViewById(R.id.toastToDisplay);
+        toastToDisplay.setText(message);
+        toast.show();
+
     }
 
     private void swapPlayerTurnImage(Player currentPlay){
