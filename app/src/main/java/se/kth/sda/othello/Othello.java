@@ -136,4 +136,9 @@ public interface Othello {
 	 * Sets initial coins for both players on 4 central nodes.
 	 */
 	public void moveInitialNodes();
+
+	/**
+	 * Swap to another player.
+	 */
+	public void swapPlayer();
 }
