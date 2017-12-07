@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="@mipmap/button"
+            android:background="@drawable/border_layout"
             android:onClick="startHumanGame"
             android:padding="20dp"
             android:text="Start a Human vs Human game!" />
@@ -66,8 +66,8 @@
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:alpha="0.7"
-            android:background="@mipmap/button"
+            android:alpha="0.8"
+            android:background="@drawable/border_layout"
             android:onClick="exitGame"
             android:text="Quit" />
     </LinearLayout>
