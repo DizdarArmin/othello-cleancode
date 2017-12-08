@@ -34,13 +34,17 @@ public class HumanPlayer implements Player {
         return Type.HUMAN;
     }
 
-    //start: new method by Aleksandar 12.01
+    /**
+     * @author Aleksandar
+     */
     @Override
     public int getScore() {
         return this.score;
     }
 
-    //start: new method by Aleksandar 12.01
+    /**
+     * @author Aleksandar
+     */
     @Override
     public void setScore(int score) {
         this.score = score;
