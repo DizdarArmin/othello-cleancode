@@ -19,6 +19,7 @@ import se.kth.sda.othello.player.Player;
 public class MainActivity extends Activity {
     public static final String GAME_TYPE = "GAME_TYPE";
     public static final String GAME_HUMAN = "HUMAN";
+    public static final String GAME_COMPUTER = "COMPUTER";
     public static final String GAME_RESULT = "GAME_RESULT";
     public static final String GAME_PLAYERONE = "P1";
     public static final String GAME_PLAYERTWO = "P2";
@@ -44,6 +45,10 @@ public class MainActivity extends Activity {
         if (this.getIntent().getExtras().getString(GAME_TYPE).equals(GAME_HUMAN)) {
             game = gameFactory.createHumanGame();
         }
+        //start: modified by Aleksandar 12.08
+        else if (this.getIntent().getExtras().getString(GAME_TYPE).equals(GAME_COMPUTER)) {
+            game = gameFactory.createHumanVersusComputerGame();
+        }
 
         game.start();
 
@@ -57,7 +62,10 @@ public class MainActivity extends Activity {
                 try {
                     if (game.isActive()) { // check there are valid moves
                         if (game.hasValidMove(currentPlay.getId())) {
-                            game.move(currentPlay.getId(), nodeId);
+                            if(currentPlay.getType().equals(Player.Type.HUMAN))
+                                game.move(currentPlay.getId(), nodeId);
+                            else if(currentPlay.getType().equals(Player.Type.COMPUTER))
+                                game.move();
                             swapPlayerTurnImage(currentPlay);
 
                             currentPlay = game.getPlayerInTurn();
@@ -101,7 +109,11 @@ public class MainActivity extends Activity {
                 }
             }
         });
-    }
+
+
+        }
+
+
 
     private void displayEndMessage(String message){
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);

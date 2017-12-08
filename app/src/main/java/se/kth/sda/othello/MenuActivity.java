@@ -13,10 +13,18 @@ public class MenuActivity extends Activity {
         setContentView(R.layout.activity_menu);
     }
 
-    /** Called when the user clicks the button */
+    /** Called when the user clicks the Create Human vs Human button */
     public void startHumanGame(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.GAME_TYPE, MainActivity.GAME_HUMAN);
+        startActivityForResult(intent, 0);
+    }
+
+    //start: created by Aleksandar 12.08
+    /** Called when the user clicks the Create Human vs Computer button */
+    public void startHumanVsComputerGame(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(MainActivity.GAME_TYPE, MainActivity.GAME_COMPUTER);
         startActivityForResult(intent, 0);
     }
 
