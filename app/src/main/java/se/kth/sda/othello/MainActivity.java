@@ -26,18 +26,18 @@ public class MainActivity extends Activity {
 
     OthelloFactory gameFactory = new OthelloFactoryImp();
     Othello game;
-    //start: modify by Xin 11.23
+
     private ImageView turnImage;
     private TextView totalPlayerOne;
     private TextView totalPlayerTwo;
-    //end
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         final BoardView boardView = (BoardView) findViewById(R.id.boardView);
-        //start: modify by Xin 11.23
+
         turnImage = (ImageView) findViewById(R.id.turn_image);
         totalPlayerOne =(TextView) findViewById(R.id.total_playerOne);
         totalPlayerTwo =(TextView) findViewById(R.id.total_playerTwo);
@@ -107,7 +107,6 @@ public class MainActivity extends Activity {
                     swapPlayerTurnImage(currentPlay);
                     return;
                 }
-
             }
         });
 
@@ -135,13 +134,13 @@ public class MainActivity extends Activity {
         text.setText(message);
         alertDialog.show();
 
-
         }
 
-
-    // Customized toast method which displays rectangle toast with white background and black text.
-    // @param message
-    // By Armin Dizdar
+    /**
+     * Customized toast method which displays rectangle toast with white background and black text.
+     * @author Armin Dizdar
+     * @param message
+     */
     private void displayToast(String message){
         Toast toast = new Toast(MainActivity.this);
         toast.setDuration(Toast.LENGTH_SHORT);
@@ -168,8 +167,11 @@ public class MainActivity extends Activity {
         super.finish();
  		
     }
-    // On back button pressed from MainActivity will go to MenuActivity.
-    // By Armin Dizdar.
+
+    /**
+     * On back button pressed from MainActivity will go to MenuActivity.
+     * @author Armin Dizdar
+     */
     @Override
     public void onBackPressed() {
         super.onBackPressed();

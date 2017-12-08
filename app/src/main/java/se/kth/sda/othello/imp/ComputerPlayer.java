@@ -10,6 +10,7 @@ import se.kth.sda.othello.player.Player;
  * Created by alexo1979 on 12/5/17.
  *
  * A class for a Computer player
+ * @author Aleksandar
  */
 
 public class ComputerPlayer implements Player {
@@ -50,24 +51,20 @@ public class ComputerPlayer implements Player {
         return Type.COMPUTER;
     }
 
-    //start: new method by Aleksandar 12.05
     @Override
     public int getScore() {
         return this.score;
     }
 
-    //start: new method by Aleksandar 12.05
     @Override
     public void setScore(int score) {
         this.score = score;
     }
 
-    //start: new method by Aleksandar 12.07
     public int getNodeValue(int x, int y) {
         return this.nodeValues[x][y];
     }
 
-    //start: new method by Aleksandar 12.07
     @Override
     public String pickMove (List<Node> possibleMoves) {
         if (possibleMoves.size() > 1) {

@@ -24,10 +24,12 @@ public class LoginActivity extends Activity {
         begin();
     }
 
-    // Multithreading
-    // Going to second activity which is delayed by 3 seconds.
-    // Calling rotate method.
-    // By Armin Dizdar 05/12/2017
+    /**
+     * Multithreading
+     * Going to second activity which is delayed by 3 seconds.
+     * Calling rotate method.
+     * @author Armin Dizdar
+     */
     public void begin() {
         new Thread(new Runnable() {
             @Override
@@ -51,8 +53,9 @@ public class LoginActivity extends Activity {
 
     }
 
-    // Rotating logo image by 360 degrees in 3 seconds.
-    // By Armin Dizdar 06/12/2017
+    /** Rotating logo image by 360 degrees in 3 seconds.
+     * @author Armin Dizdar
+     */
     public void rotate(){
         RotateAnimation rotate = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotate.setDuration(3000);

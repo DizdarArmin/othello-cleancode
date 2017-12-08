@@ -34,16 +34,19 @@ public class MenuActivity extends Activity {
         t.show();
     }
 
-
-
-    //Exit from game method.
-    // By Armin Dizdar
+    /**
+     * Exit from game method.
+     * @author Armin Dizdar
+     * @param view
+     */
     public void exitGame(View view){
         finishAffinity();
     }
 
-    // On back button pressed from MenuActivity will go to LoginActivity.
-    // By Armin Dizdar.
+    /**
+     * On back button pressed from MenuActivity will go to LoginActivity.
+     * @author Armin Dizdar
+     */
     @Override
     public void onBackPressed() {
         super.onBackPressed();

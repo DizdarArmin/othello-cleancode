@@ -8,9 +8,6 @@ import se.kth.sda.othello.board.Board;
 import se.kth.sda.othello.board.Node;
 import se.kth.sda.othello.player.Player;
 
-/**
- * Created by robertog on 2/7/17.
- */
 public class OthelloImp implements Othello {
     private final Player playerOne;
     private final Player playerTwo;
@@ -30,13 +27,11 @@ public class OthelloImp implements Othello {
         return board;
     }
 
-    //start: new method by Aleksandar 11.27
     @Override
     public void setNode(Node node) {
         board.setNode(node);
     }
 
-    //start: modified by Aleksandar 11.26
     @Override
     public List<Node> getNodesToSwap(String playerId, String nodeId) {
 
@@ -379,7 +374,6 @@ public class OthelloImp implements Othello {
 
     }
 
-    //start: new method by Aleksandar 11.25
     @Override
     public List<Node> getPossibleMoves() {
         Node nodes[][] = getBoard().getBoardNodes();
@@ -599,7 +593,6 @@ public class OthelloImp implements Othello {
         return res;
     }
 
-    //start: modified method by Aleksandar 12.01
     @Override
     public boolean hasValidMove(String playerId) {
         if (playerId.equals(getPlayerInTurn().getId())) {
@@ -614,7 +607,6 @@ public class OthelloImp implements Othello {
             return false;
     }
 
-    //start: modified method by Aleksandar 12.01
     @Override
     public boolean isActive() {
 
@@ -632,7 +624,6 @@ public class OthelloImp implements Othello {
         }
     }
 
-    //start: modified method by Aleksandar 12.01
     @Override
     public boolean isMoveValid(String playerId, String nodeId) {
 
@@ -696,7 +687,6 @@ public class OthelloImp implements Othello {
         nodeRes.add(newNode);
 
         // Swap the nodes
-        // @author petrych
         List <Node> list = getNodesToSwap(playerId, newNode.getId());
         for (Node node : list) {
             node.setPlayerId(playerId);
@@ -709,12 +699,6 @@ public class OthelloImp implements Othello {
     }
 
     @Override
-    /**
-     * Make initial 2 moves for each player.
-     * Initial nodes are defined in the BoardImp class.
-     * @return the list of nodes where the moves are made
-     * @author petrych
-     */
     public void moveInitialNodes() {
         board.setNode(new NodeImp("3,3", playerOne.getId()));
         board.setNode(new NodeImp("3,4", playerTwo.getId()));
@@ -733,11 +717,7 @@ public class OthelloImp implements Othello {
         currentPlayer = playerOne;
     }
 
-    /**
-     * Get the score of the current player by Xin
-     * @param playerId current player
-     * @return the score of the current player
-     */
+    @Override
     public int getPlayerScore(String playerId){
         int score =0;
 

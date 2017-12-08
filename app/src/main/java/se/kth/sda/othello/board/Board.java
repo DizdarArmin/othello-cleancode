@@ -16,11 +16,11 @@ public interface Board {
 	 */
 	public List<Node> getNodes();
 
-	//start: new method by Aleksandar 11.25
 	/**
 	 * Returns a Board only represented by nodes in a array of array.
 	 *
 	 * @return the nodes of the board
+	 * @author Aleksandar
 	 */
 	public Node[][] getBoardNodes();
 
