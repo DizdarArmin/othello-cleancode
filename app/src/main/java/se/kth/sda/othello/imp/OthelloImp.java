@@ -666,6 +666,11 @@ public class OthelloImp implements Othello {
             throw new IllegalStateException("Current player is not a computer");
 
         String nodeID = getPlayerInTurn().pickMove(getPossibleMoves());
+
+        Node newNode = new NodeImp(nodeID, currentPlayer.getId());
+        board.setNode(newNode);
+        nodeRes.add(newNode);
+
         List <Node> list = getNodesToSwap(getPlayerInTurn().getId(), nodeID);
         for (Node node : list) {
             node.setPlayerId(getPlayerInTurn().getId());
