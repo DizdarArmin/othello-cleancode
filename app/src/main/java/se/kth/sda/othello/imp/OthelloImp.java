@@ -725,13 +725,11 @@ public class OthelloImp implements Othello {
 
     @Override
     public void start() {
-        // TODO: choose a random player
         currentPlayer = playerOne;
     }
 
     @Override
     public void start(String playerId) {
-        // TODO: choose the player with the right ID
         currentPlayer = playerOne;
     }
 

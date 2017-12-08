@@ -47,7 +47,6 @@ public class MenuActivity extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
-        startActivityForResult(intent, 0);
+        finishAffinity();
     }
 }
