@@ -22,6 +22,9 @@ public class OthelloFactoryImp implements OthelloFactory {
 
     @Override
     public Othello createHumanVersusComputerGame() {
-        return null;
+
+        Player one = new HumanPlayer("P1", "Player 1");
+        Player two = new ComputerPlayer("P2", "Player 2");
+        return new OthelloImp(one, two);
     }
 }

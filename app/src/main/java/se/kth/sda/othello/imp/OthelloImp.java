@@ -650,14 +650,22 @@ public class OthelloImp implements Othello {
             currentPlayer = playerOne;
     }
 
+    //start: modified method by Aleksandar 12.07
     @Override
     public List<Node> move() {
         if (currentPlayer.getType() != Player.Type.COMPUTER)
             throw new IllegalStateException("Current player is not a computer");
 
+        String nodeID = getPlayerInTurn().pickMove(getPossibleMoves());
+        List <Node> list = getNodesToSwap(getPlayerInTurn().getId(), nodeID);
+        for (Node node : list) {
+            node.setPlayerId(getPlayerInTurn().getId());
+        }
+        nodeRes = board.getNodes(); // update the list of nodes on the board with the swapped nodes
+
         swapPlayer();
 
-        return new Vector<Node>();
+        return nodeRes;
     }
 
     @Override
