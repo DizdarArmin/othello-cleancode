@@ -110,7 +110,11 @@ public class MainActivity extends Activity {
 
             }
         });
-    }
+
+
+        }
+
+
 
     private void displayEndMessage(String message){
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
