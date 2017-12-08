@@ -1,11 +1,24 @@
 package se.kth.sda.othello.player;
 
+import java.util.List;
+
+import se.kth.sda.othello.board.Node;
+
 /**
  * A representation of player.
  *
  * @author Tomas Ekholm
  */
 public interface Player {
+
+	//start: new method by Aleksandar 12.07
+	/**
+	 * Used in ComputerPlayer to get the next computer move
+	 * from a list of possible moves
+	 *
+	 * @return the nodeID of the best next move by AI strategy
+	 */
+	public String pickMove(List<Node> possibleMoves);
 
 	/**
 	 * The different type of {@link Player}s
