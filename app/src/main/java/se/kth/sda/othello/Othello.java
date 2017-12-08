@@ -20,29 +20,29 @@ public interface Othello {
 	 */
 	public Board getBoard();
 
-	//start: new method by Aleksandar 11.27
 	/**
 	 * Sets a node to different properties in the Board  .
 	 *
 	 * @param node the node to set
+     * @author Aleksandar
 	 */
 	public void setNode(Node node);
 
-	//start: modified method by Aleksandar 11.26
 	/**
 	 * Returns the nodes that will be swapped for a move at the given nodeId.
 	 *
 	 * @param playerId the id of the player making the move
 	 * @param nodeId the id of the node where the move is made
 	 * @return the list of nodes that will be swapped for the given move
+     * @author Aleksandar
 	 */
 	public List<Node> getNodesToSwap(String playerId, String nodeId);
 
-	//start: new method by Aleksandar 11.25
 	/**
 	 * Returns the nodes as next possible moves  .
 	 *
 	 * @return the list of nodes as possible moves for the next move
+     * @author Aleksandar
 	 */
 	public List<Node> getPossibleMoves();
 
@@ -60,30 +60,30 @@ public interface Othello {
 	 */
 	public List<Player> getPlayers();
 
-	//start: modified method by Aleksandar 12.01
 	/**
 	 * Determines if a player has any valid move.
 	 *
 	 * @param playerId the id of the player
 	 * @return true if the player has a valid move
+     * @author Aleksandar
 	 */
 	public boolean hasValidMove(String playerId);
 
-	//start: modified method by Aleksandar 12.01
 	/**
 	 * Determines if the game is active or over
 	 *
 	 * @return false if the game is over
+     * @author Aleksandar
 	 */
 	public boolean isActive();
 
-	//start: modified method by Aleksandar 12.01
 	/**
 	 * Determines if a player is allowed to make a move at the given node.
 	 *
 	 * @param playerId the id of the player making the move
 	 * @param nodeId the node id where the player wants to play
 	 * @return true if the move is valid
+     * @author Aleksandar
 	 */
 	public boolean isMoveValid(String playerId, String nodeId);
 
@@ -119,22 +119,27 @@ public interface Othello {
 	public void start(String playerId);
 
 	/**
-	 * Get the score of the current player by Xin
+	 * Get the score of the current player
+     *
 	 * @param playerId current player
 	 * @return the score of the current player
+     * @author Xin
 	 */
 	public int getPlayerScore(String playerId);
 
 	/**
-	 * Return a message with a score when the game ends.
+	 * Return a message with a score when the game ends
+     *
 	 * @return string message
 	 * @author petrych
 	 */
 	public String getGameEndMessage();
 
-	/**
-	 * Sets initial coins for both players on 4 central nodes.
-	 */
+    /**
+     * Set initial 2 nodes for each player
+     *
+     * @author petrych
+     */
 	public void moveInitialNodes();
 
 	/**
