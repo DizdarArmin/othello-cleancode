@@ -59,11 +59,22 @@ public class MainActivity extends Activity {
                         if (game.hasValidMove(currentPlay.getId())) {
                             game.move(currentPlay.getId(), nodeId);
                             swapPlayerTurnImage(currentPlay);
+
+                            currentPlay = game.getPlayerInTurn();
+
+                            // swap player automatically if they have no valid moves
+                            if (!game.hasValidMove(currentPlay.getId())) {
+                                swapPlayerAutomatically(currentPlay);
+                            }
                         }
-                        else {
-                            displayToast("Current player has no moves. Switched to another player");
-                            game.swapPlayer();
-                            swapPlayerTurnImage(currentPlay);
+                        else { // swap player automatically if they have no valid moves
+                            swapPlayerAutomatically(currentPlay);
+                            currentPlay = game.getPlayerInTurn();
+
+                            // swap player automatically if they have no valid moves
+                            if (!game.hasValidMove(currentPlay.getId())) {
+                                swapPlayerAutomatically(currentPlay);
+                            }
                         }
                     }
                     else {
@@ -88,6 +99,7 @@ public class MainActivity extends Activity {
                     swapPlayerTurnImage(currentPlay);
                     return;
                 }
+
             }
         });
     }
@@ -139,7 +151,7 @@ public class MainActivity extends Activity {
     }
     public void quitGame(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
-        intent.putExtra(GAME_RESULT, "P1");
+        intent.putExtra (GAME_RESULT, "Back to the menu");
         setResult(RESULT_OK, intent);
         super.finish();
  		
@@ -151,5 +163,19 @@ public class MainActivity extends Activity {
         super.onBackPressed();
         Intent intent = new Intent(getBaseContext(), MenuActivity.class);
         startActivityForResult(intent, 0);
+    }
+
+    /**
+     * Swap a player automatically and display a corresponding message.
+     * Only if there are unoccupied nodes on the board.
+     * @param currentPlayer the player in turn
+     * @author petrych
+     */
+    public void swapPlayerAutomatically(Player currentPlayer) {
+        if (game.isActive()) {
+            displayToast("Current player has no moves. Switched to another player");
+            game.swapPlayer();
+            swapPlayerTurnImage(currentPlayer);
+        }
     }
 }
