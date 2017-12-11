@@ -54,6 +54,7 @@
             android:id="@+id/start_game"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight="1"
             android:background="@drawable/border_layout"
             android:onClick="startHumanGame"
@@ -64,6 +65,7 @@
             android:id="@+id/start_game"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight="1"
             android:background="@drawable/border_layout"
             android:onClick="startHumanVsComputerGame"
@@ -71,10 +73,20 @@
             android:text="Start a Human vs Computer game!" />
 
         <Button
+            android:id="@+id/tutorial"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/border_layout"
+            android:onClick="displayTutorial"
+            android:padding="20dp"
+            android:text="How to play " />
+
+        <Button
             android:id="@+id/quit_game"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:alpha="0.8"
             android:background="@drawable/border_layout"

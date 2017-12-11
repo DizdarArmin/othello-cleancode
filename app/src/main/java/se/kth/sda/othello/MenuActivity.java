@@ -3,8 +3,11 @@ package se.kth.sda.othello;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 public class MenuActivity extends Activity {
     @Override
@@ -26,6 +29,20 @@ public class MenuActivity extends Activity {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.GAME_TYPE, MainActivity.GAME_COMPUTER);
         startActivityForResult(intent, 0);
+    }
+
+    public void displayTutorial (View view){
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View tutorial = inflater.inflate(R.layout.tutorial_layout, null);
+        dialogBuilder.setView(tutorial);
+        final AlertDialog alertDialog = dialogBuilder.create();
+        VideoView tutorialView = (VideoView) tutorial.findViewById(R.id.videoView);
+        tutorialView.setVideoPath("android.resource://" + getPackageName() + "/"
+                +R.raw.othello_gameplay);
+        tutorialView.setZOrderOnTop(true);
+        tutorialView.start();
+        alertDialog.show();
     }
 
     @Override
