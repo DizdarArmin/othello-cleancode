@@ -53,9 +53,10 @@ public class OthelloImp implements Othello {
             //check NORTH
 
             int k = node.getXCoordinate();
-            int l = node.getYCoordinate() - 1;
+            int l = node.getYCoordinate();
 
             if (l > 1) {
+                l--;
                 if (nodes[k][l].isMarked() &&
                         !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
                     dirRes.add(nodes[k][l]);
@@ -91,9 +92,10 @@ public class OthelloImp implements Othello {
             //check SOUTH
 
             k = node.getXCoordinate();
-            l = node.getYCoordinate() + 1;
+            l = node.getYCoordinate();
 
             if (l < 6) {
+                l++;
                 if (nodes[k][l].isMarked() &&
                         !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
                     dirRes.add(nodes[k][l]);
@@ -128,10 +130,11 @@ public class OthelloImp implements Othello {
 
             //check EAST
 
-            k = node.getXCoordinate() + 1;
+            k = node.getXCoordinate();
             l = node.getYCoordinate();
 
             if (k < 6) {
+                k++;
                 if (nodes[k][l].isMarked() &&
                         !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
                     dirRes.add(nodes[k][l]);
@@ -166,10 +169,11 @@ public class OthelloImp implements Othello {
 
             //check WEST
 
-            k = node.getXCoordinate() - 1;
+            k = node.getXCoordinate();
             l = node.getYCoordinate();
 
             if (k > 1) {
+                k--;
                 if (nodes[k][l].isMarked() &&
                         !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
                     dirRes.add(nodes[k][l]);
@@ -204,10 +208,12 @@ public class OthelloImp implements Othello {
 
             //check NORTHWEST
 
-            k = node.getXCoordinate() - 1;
-            l = node.getYCoordinate() - 1;
+            k = node.getXCoordinate();
+            l = node.getYCoordinate();
 
             if (k > 1 && l > 1) {
+                k--;
+                l--;
                 if (nodes[k][l].isMarked() &&
                         !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
                     dirRes.add(nodes[k][l]);
@@ -244,10 +250,12 @@ public class OthelloImp implements Othello {
 
             //check SOUTHEAST
 
-            k = node.getXCoordinate() + 1;
-            l = node.getYCoordinate() + 1;
+            k = node.getXCoordinate();
+            l = node.getYCoordinate();
 
             if (k < 6 && l < 6) {
+                k++;
+                l++;
                 if (nodes[k][l].isMarked() &&
                         !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
                     dirRes.add(nodes[k][l]);
@@ -284,10 +292,12 @@ public class OthelloImp implements Othello {
 
             //check NORTHEAST
 
-            k = node.getXCoordinate() + 1;
-            l = node.getYCoordinate() - 1;
+            k = node.getXCoordinate();
+            l = node.getYCoordinate();
 
             if (k < 6 && l > 1) {
+                k++;
+                l--;
                 if (nodes[k][l].isMarked() &&
                         !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
                     dirRes.add(nodes[k][l]);
@@ -324,10 +334,12 @@ public class OthelloImp implements Othello {
 
             //check SOUTHWEST
 
-            k = node.getXCoordinate() - 1;
-            l = node.getYCoordinate() + 1;
+            k = node.getXCoordinate();
+            l = node.getYCoordinate();
 
             if (k > 1 && l < 6) {
+                k--;
+                l++;
                 if (nodes[k][l].isMarked() &&
                         !nodes[k][l].getOccupantPlayerId().equals(playerId)) {
                     dirRes.add(nodes[k][l]);
